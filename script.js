@@ -17,7 +17,6 @@ var sevenPm = $("#19pm");
 var hour = moment().hours();
 var userInput;
 var hourSpan;
-// var hourString = $(".hour").text().split(" ");
 
 // Date and Hour
 
@@ -76,7 +75,7 @@ function background () {
       hour = parseInt(hour);
       console.log("timeTest: "+ timeTest);
       console.log("hour: "+ hour);
-//      console.log(this);
+      // console.log(this);
       if (hour > timeTest) {
           $(this).addClass("past");
       } else if (hour < timeTest) {
@@ -88,22 +87,22 @@ function background () {
 }
 
 $(document).ready(function(){
-  initPage()
-  background()
+  initPage();
+  background();
 
   // Buttons (save to Local Storage)
   $(".saveBtn").on("click", function(){
     userInput = $(this).siblings(".form-control").val().trim();
-    console.log(userInput);
+    // console.log(userInput);
     hourSpan = $(this).siblings(".input-group-prepend").text().trim();
-    console.log(hourSpan);
+    // console.log(hourSpan);
     localStorage.setItem(hourSpan, JSON.stringify(userInput));
 
   })
   // Button for clear the day
   $("#clearDay").on("click", function(){
     localStorage.clear();
-    initPage()
+    initPage();
   }) 
 
 });
