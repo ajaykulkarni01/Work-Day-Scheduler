@@ -1,6 +1,7 @@
 // Moment.js
 var currentDate = moment().format('dddd') + " " + moment().format("Do MMM YYYY");
 var currentHour = moment().format('h:mm:ss a');
+
 // Text hour var
 var nineAm = $("#9am");
 var tenAm = $("#10am");
@@ -19,7 +20,6 @@ var userInput;
 var hourSpan;
 
 // Date and Hour
-
 var interval = setInterval(function() {
   var momentNow = moment();
   $('#currentDay').html(momentNow.format('YYYY MMMM DD') + ' '
@@ -30,7 +30,7 @@ var interval = setInterval(function() {
 
 function initPage() {
 
-  console.log("Current Hour " + hour);
+  // console.log("Current Hour " + hour);
   var init9 = JSON.parse(localStorage.getItem("09:00 am"));
   nineAm.val(init9);
 
@@ -65,16 +65,13 @@ function initPage() {
   sevenPm.val(init7);
 } 
 
-// var a = moment().hour();
-// console.log("hours is: ",a); 
-
 function background () {
       
   $(".form-control").each(function () {
       var timeTest = parseInt($(this).attr("id"));
       hour = parseInt(hour);
-      console.log("timeTest: "+ timeTest);
-      console.log("hour: "+ hour);
+      // console.log("timeTest: "+ timeTest);
+      // console.log("hour: "+ hour);
       // console.log(this);
       if (hour > timeTest) {
           $(this).addClass("past");
@@ -99,8 +96,8 @@ $(document).ready(function(){
     localStorage.setItem(hourSpan, JSON.stringify(userInput));
 
   })
-  // Button for clear the day
-  $("#clearDay").on("click", function(){
+  // Button to delete all the entries
+  $("#deleteData").on("click", function(){
     localStorage.clear();
     initPage();
   }) 
